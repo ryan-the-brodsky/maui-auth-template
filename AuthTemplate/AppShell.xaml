@@ -4,12 +4,31 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AuthTemplate"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:startupPages="clr-namespace:AuthTemplate.Views.Startup"
+    xmlns:dashboardPages="clr-namespace:AuthTemplate.Views.Dashboard"
+    Shell.TabBarIsVisible="False">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Login Page" FlyoutItemIsVisible="False"
+        ContentTemplate="{DataTemplate startupPages:LoginPage}"
+        Route="LoginPage" />
+
+    <FlyoutItem Route="DashboardPage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
+            Route="DashboardPage" />
+
+        <ShellContent
+            Title="Other Page"
+            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
+            Route="DashboardPage" />
+
+        <ShellContent
+            Title="Yet a Third Page"
+            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
+            Route="DashboardPage" />
+    </FlyoutItem>
 
 </Shell>
 

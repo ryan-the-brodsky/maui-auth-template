@@ -1,5 +1,4 @@
-﻿using System;
-namespace AuthTemplate.Handlers
+﻿namespace AuthTemplate.Handlers
 {
 	public class BorderlessEntry : Entry
 	{
