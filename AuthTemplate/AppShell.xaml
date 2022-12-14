@@ -30,5 +30,11 @@
             Route="DashboardPage" />
     </FlyoutItem>
 
+    <Shell.FlyoutFooter>
+        <StackLayout>
+            <Button Text="Sign Out" Command="{Binding LogOutCommand}"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
 </Shell>
 
