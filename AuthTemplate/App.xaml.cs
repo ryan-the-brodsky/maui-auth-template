@@ -1,10 +1,12 @@
 ﻿using AuthTemplate.Handlers;
 using Microsoft.Maui.Platform;
+using AuthTemplate.Models;
 
 namespace AuthTemplate;
 
 public partial class App : Application
 {
+	public static UserInfo UserDetails;
 	public App()
 	{
 		InitializeComponent();

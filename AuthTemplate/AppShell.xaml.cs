@@ -11,6 +11,7 @@ public partial class AppShell : Shell
 		BindingContext = new AppShellViewModel();
 		Routing.RegisterRoute(nameof(DashboardPage), typeof(DashboardPage));
 		Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+		Routing.RegisterRoute(nameof(LoadingPage), typeof(LoadingPage));
 	}
 }
 

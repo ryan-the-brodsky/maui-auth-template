@@ -8,10 +8,12 @@
     xmlns:dashboardPages="clr-namespace:AuthTemplate.Views.Dashboard"
     Shell.TabBarIsVisible="False">
 
-    <ShellContent
-        Title="Login Page" FlyoutItemIsVisible="False"
-        ContentTemplate="{DataTemplate startupPages:LoginPage}"
-        Route="LoginPage" />
+    <ShellContent FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate startupPages:LoadingPage}"
+        Route="LoadingPage" />
+
+    <ShellContent Title="Login Page" FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
+                  ContentTemplate="{DataTemplate startupPages:LoginPage}" Route="LoginPage" />
 
     <FlyoutItem Route="DashboardPage" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent

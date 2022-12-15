@@ -22,7 +22,7 @@
                     <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Margin="40,0,0,0" VerticalOptions="Center" Placeholder="User Name" Keyboard="Email"/>
+                    <handlers:BorderlessEntry Text="{Binding Email}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="User Name" Keyboard="Email"/>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -30,7 +30,7 @@
                     <Image Source="lock.png" HeightRequest="20" WidthRequest="20"/>
                 </Frame>
                 <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Margin="40,0,0,0" VerticalOptions="Center" Placeholder="Password" IsPassword="True" Keyboard="Text"/>
+                    <handlers:BorderlessEntry Text="{Binding Password}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="Password" IsPassword="True" Keyboard="Text"/>
                 </Frame>
             </StackLayout>
 
