@@ -2,6 +2,7 @@
 using AuthTemplate.Models;
 using AuthTemplate.Controls;
 using Newtonsoft.Json;
+using AuthTemplate.Services;
 
 namespace AuthTemplate.ViewModels
 {
@@ -13,6 +14,13 @@ namespace AuthTemplate.ViewModels
 		[ObservableProperty]
 		private string _password;
 
+		private readonly ILoginService _loginService;
+
+		public LoginPageViewModel(ILoginService loginService)
+		{
+			_loginService = loginService;
+		}
+
 		[ICommand]
 		async void Login()
 		{
@@ -20,27 +28,40 @@ namespace AuthTemplate.ViewModels
 			{
 
 				//api call
-
-				var userDetails = new UserInfo()
+				AuthResponse response = await _loginService.Authenticate(new LoginRequest
 				{
-					Email = Email
-				};
+					Email = Email,
+					Password = Password
+				});
+
+				if (response.IsAuthSuccessful)
+				{
+					var userDetails = new UserInfo()
+					{
+						Email = Email
+					};
+
+					if (Preferences.ContainsKey(nameof(App.UserDetails)))
+					{
+						Preferences.Remove(nameof(App.UserDetails));
+					}
+
+					string userDetailStr = JsonConvert.SerializeObject(userDetails);
+					Preferences.Set(nameof(App.UserDetails), userDetailStr);
+					App.UserDetails = userDetails;
+					AppShell.Current.FlyoutHeader = new FlyoutHeaderControl();
+					await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+                }
+				else
+				{
+					// Login was unsuccessful
+					await AppShell.Current.DisplayAlert(response.ErrorMessage, response.ErrorMessage, "OK");
+				}
 
 				
 
-				if(Preferences.ContainsKey(nameof(App.UserDetails)))
-				{
-					Preferences.Remove(nameof(App.UserDetails));
-				}
-
-				string userDetailStr = JsonConvert.SerializeObject(userDetails);
-				Preferences.Set(nameof(App.UserDetails), userDetailStr);
-				App.UserDetails = userDetails;
-                AppShell.Current.FlyoutHeader = new FlyoutHeaderControl();
-
             }
-            await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
-		}
+        }
 	}
 }
 

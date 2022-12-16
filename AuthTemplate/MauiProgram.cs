@@ -3,6 +3,7 @@ using AuthTemplate.Views.Startup;
 using AuthTemplate.Views.Dashboard;
 using AuthTemplate.ViewModels.Dashboard;
 using AuthTemplate.ViewModels.Startup;
+using AuthTemplate.Services;
 
 namespace AuthTemplate;
 
@@ -22,15 +23,20 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-		// Views
-		builder.Services.AddSingleton<LoginPage>();
+        // Services
+        builder.Services.AddSingleton<ILoginService, LoginService>();
+        // Views
+        builder.Services.AddSingleton<LoginPage>();
 		builder.Services.AddSingleton<DashboardPage>();
 		builder.Services.AddSingleton<LoadingPage>();
 		// ViewModels
 		builder.Services.AddSingleton<LoginPageViewModel>();
 		builder.Services.AddSingleton<DashboardPageViewModel>();
 		builder.Services.AddSingleton<LoadingPageViewModel>();
-		return builder.Build();
-	}
+
+
+
+        return builder.Build();
+    }
 }
 

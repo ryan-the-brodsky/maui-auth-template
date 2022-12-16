@@ -67,6 +67,7 @@
 	  <None Remove="Newtonsoft.Json" />
 	  <None Remove="ViewModels\Startup\" />
 	  <None Remove="Controls\" />
+	  <None Remove="Services\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Handlers\" />
@@ -77,6 +78,7 @@
 	  <Folder Include="Models\" />
 	  <Folder Include="ViewModels\Startup\" />
 	  <Folder Include="Controls\" />
+	  <Folder Include="Services\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="Views\Startup\LoginPage.xaml">
