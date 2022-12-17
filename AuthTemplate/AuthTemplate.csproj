@@ -93,5 +93,8 @@
 	  <MauiXaml Update="Controls\FlyoutHeaderControl.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Startup\RegistrationPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

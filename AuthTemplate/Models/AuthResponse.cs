@@ -5,6 +5,7 @@ namespace AuthTemplate.Models
 	{
         public bool IsAuthSuccessful { get; set; }
         public string? ErrorMessage { get; set; }
+        public IEnumerable<string>? Errors { get; set; }
         public string? Token { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
