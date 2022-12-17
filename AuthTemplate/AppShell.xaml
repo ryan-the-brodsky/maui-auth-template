@@ -15,6 +15,9 @@
     <ShellContent Title="Login Page" FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
                   ContentTemplate="{DataTemplate startupPages:LoginPage}" Route="LoginPage" />
 
+    <ShellContent Title="Registration Page" FlyoutItemIsVisible="False" Shell.FlyoutBehavior="Disabled"
+                  ContentTemplate="{DataTemplate startupPages:RegistrationPage}" Route="RegistrationPage" />
+
     <FlyoutItem Route="DashboardPage" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
             Title="Dashboard"

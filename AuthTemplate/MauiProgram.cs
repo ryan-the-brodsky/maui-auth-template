@@ -25,12 +25,15 @@ public static class MauiProgram
 #endif
         // Services
         builder.Services.AddSingleton<ILoginService, LoginService>();
+		builder.Services.AddSingleton<IRegistrationService, RegistrationService>();
         // Views
         builder.Services.AddSingleton<LoginPage>();
+		builder.Services.AddSingleton<RegistrationPage>();
 		builder.Services.AddSingleton<DashboardPage>();
 		builder.Services.AddSingleton<LoadingPage>();
 		// ViewModels
 		builder.Services.AddSingleton<LoginPageViewModel>();
+		builder.Services.AddSingleton<RegistrationPageViewModel>();
 		builder.Services.AddSingleton<DashboardPageViewModel>();
 		builder.Services.AddSingleton<LoadingPageViewModel>();
 

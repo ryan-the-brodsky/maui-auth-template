@@ -2,11 +2,53 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AuthTemplate.Views.Startup.RegistrationPage"
+                          Shell.NavBarIsVisible="False"
+             xmlns:handlers="clr-namespace:AuthTemplate.Handlers"
              Title="RegistrationPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="10" Spacing="15">
+            <VerticalStackLayout Spacing="15" >
+                <Label Text="Register your account" FontSize="18" TextColor="Grey" HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
+                    <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>
+                </Frame>
+                <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <handlers:BorderlessEntry Text="{Binding FirstName}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="First Name" Keyboard="Text"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
+                    <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>
+                </Frame>
+                <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <handlers:BorderlessEntry Text="{Binding LastName}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="Last Name" Keyboard="Text"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
+                    <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>
+                </Frame>
+                <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <handlers:BorderlessEntry Text="{Binding Email}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="Email" Keyboard="Email"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
+                    <Image Source="lock.png" HeightRequest="20" WidthRequest="20"/>
+                </Frame>
+                <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <handlers:BorderlessEntry Text="{Binding Password}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="Password" IsPassword="True" Keyboard="Text"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
+                    <Image Source="lock.png" HeightRequest="20" WidthRequest="20"/>
+                </Frame>
+                <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <handlers:BorderlessEntry Text="{Binding ConfirmPassword}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="Confirm Password" IsPassword="True" Keyboard="Text"/>
+                </Frame>
+            </StackLayout>
+            <Button Command="{Binding RegisterCommand}" Text="Register" HorizontalOptions="FillAndExpand" CornerRadius="20" WidthRequest="100" BackgroundColor="Blue"/> 
     </VerticalStackLayout>
 </ContentPage>

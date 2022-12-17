@@ -1,4 +1,5 @@
 ﻿using AuthTemplate.Views.Dashboard;
+using AuthTemplate.Views.Startup;
 using AuthTemplate.Models;
 using AuthTemplate.Controls;
 using Newtonsoft.Json;
@@ -62,6 +63,12 @@ namespace AuthTemplate.ViewModels
 
             }
         }
-	}
+
+        [ICommand]
+        async void GoToRegistrationPage()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
+        }
+    }
 }
 
