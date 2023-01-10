@@ -1,6 +1,9 @@
-﻿using System;
-using AuthTemplate.Services;
+﻿using AuthTemplate.Views.Dashboard;
+using AuthTemplate.Views.Startup;
 using AuthTemplate.Models;
+using AuthTemplate.Controls;
+using Newtonsoft.Json;
+using AuthTemplate.Services;
 namespace AuthTemplate.ViewModels.Startup
 {
 	public partial class RegistrationPageViewModel : BaseViewModel
@@ -48,7 +51,31 @@ namespace AuthTemplate.ViewModels.Startup
 					LastName = LastName
 				};
 				AuthResponse response = await _registrationService.Register(request);
-			}
+				if(response.IsAuthSuccessful)
+				{
+                    var userDetails = new UserInfo()
+                    {
+                        Email = Email
+                    };
+
+                    if (Preferences.ContainsKey(nameof(App.UserDetails)))
+                    {
+                        Preferences.Remove(nameof(App.UserDetails));
+                    }
+
+                    string userDetailStr = JsonConvert.SerializeObject(userDetails);
+                    Preferences.Set(nameof(App.UserDetails), userDetailStr);
+                    App.UserDetails = userDetails;
+                    AppShell.Current.FlyoutHeader = new FlyoutHeaderControl();
+                    await Shell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+                }
+				else
+				{
+					// use response.ErrorMessages as a List in the future
+                    await AppShell.Current.DisplayAlert("Unsuccessful Registration", "Unsuccessful Registration", "OK");
+
+                }
+            }
 		}
 	}
 }

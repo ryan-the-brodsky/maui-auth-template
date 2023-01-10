@@ -17,7 +17,7 @@ namespace AuthTemplate.Services
 		#endif
 			string requestStr = JsonConvert.SerializeObject(registrationRequest);
 
-			var response = await client.PostAsync("https://localhost:7047/api/auth/register", new StringContent(requestStr, Encoding.UTF8, "application/json"));
+			var response = await client.PostAsync("https://localhost:7043/api/accounts/registration", new StringContent(requestStr, Encoding.UTF8, "application/json"));
             var json = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode)

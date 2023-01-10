@@ -69,6 +69,46 @@ namespace AuthTemplate.ViewModels
         {
             await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
         }
+
+		[ICommand]
+		async void GoogleAuth()
+		{
+            try
+            {
+                WebAuthenticatorResult result = null;
+                if (DeviceInfo.Platform == DevicePlatform.iOS
+                    && DeviceInfo.Version.Major >= 13)
+                {
+                    // Use Native Apple Sign In API's
+                    result = await AppleSignInAuthenticator.AuthenticateAsync();
+                }
+				else
+				{
+                    result = await WebAuthenticator.Default.AuthenticateAsync(
+                        new Uri("https://localhost:7043/api/accounts/google-auth"),
+                        new Uri("myapp://"));
+
+                    string accessToken = result?.AccessToken;
+
+                    // Do something with the token
+                }
+                var authToken = string.Empty;
+
+                if (result.Properties.TryGetValue("name", out string name) && !string.IsNullOrEmpty(name))
+                    authToken += $"Name: {name}{Environment.NewLine}";
+
+                if (result.Properties.TryGetValue("email", out string email) && !string.IsNullOrEmpty(email))
+                    authToken += $"Email: {email}{Environment.NewLine}";
+
+                // Note that Apple Sign In has an IdToken and not an AccessToken
+                authToken += result?.AccessToken ?? result?.IdToken;
+
+            }
+            catch (TaskCanceledException e)
+            {
+                // Use stopped auth
+            }
+        }
     }
 }
 

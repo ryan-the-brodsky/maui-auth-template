@@ -9,22 +9,14 @@
             <VerticalStackLayout Spacing="15" >
                 <Label Text="Register your account" FontSize="18" TextColor="Grey" HorizontalTextAlignment="Center" />
             </VerticalStackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
-                    <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" RowDefinitions="50">
+                <Frame Grid.Column="0" HeightRequest="45" Padding="0" Margin="0,0,0,0" HasShadow="True" BorderColor="White">
+                    <handlers:BorderlessEntry Text="{Binding FirstName}" Margin="20" VerticalOptions="Center" Placeholder="First Name" Keyboard="Text"/>
                 </Frame>
-                <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Text="{Binding FirstName}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="First Name" Keyboard="Text"/>
+                <Frame Grid.Column="1" HeightRequest="45" Padding="0" Margin="0,0,0,0" HasShadow="True" BorderColor="White">
+                    <handlers:BorderlessEntry Text="{Binding LastName}" VerticalOptions="Center" Placeholder="Last Name" Keyboard="Text"/>
                 </Frame>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
-                    <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>
-                </Frame>
-                <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Text="{Binding LastName}" Margin="40,0,0,0" VerticalOptions="Center" Placeholder="Last Name" Keyboard="Text"/>
-                </Frame>
-            </StackLayout>
+            </Grid>
             <StackLayout Orientation="Horizontal">
                 <Frame ZIndex="1" HasShadow="True" HeightRequest="56" WidthRequest="56" BorderColor="White" CornerRadius="28">
                     <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>

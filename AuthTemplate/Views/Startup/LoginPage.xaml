@@ -34,6 +34,8 @@
 
             <Button Command="{Binding LoginCommand}" Text="Sign In" HorizontalOptions="Center" CornerRadius="20" WidthRequest="100" BackgroundColor="Blue"/> 
 
+            <Button Command="{Binding GoogleAuthCommand}" Text="Sign In With Google" HorizontalOptions="Center" CornerRadius="20" WidthRequest="100" BackgroundColor="Blue"/> 
+
             <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
                 <Label Text="Don't have an account?" TextColor="Gray"/>
 
