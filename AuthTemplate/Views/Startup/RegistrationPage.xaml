@@ -2,9 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AuthTemplate.Views.Startup.RegistrationPage"
-                          Shell.NavBarIsVisible="False"
              xmlns:handlers="clr-namespace:AuthTemplate.Handlers"
-             Title="RegistrationPage">
+             Title="Registration">
     <VerticalStackLayout Padding="10" Spacing="15">
             <VerticalStackLayout Spacing="15" >
                 <Label Text="Register your account" FontSize="18" TextColor="Grey" HorizontalTextAlignment="Center" />

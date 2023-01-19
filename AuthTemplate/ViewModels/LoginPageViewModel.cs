@@ -39,7 +39,10 @@ namespace AuthTemplate.ViewModels
 				{
 					var userDetails = new UserInfo()
 					{
-						Email = Email
+						Email = Email,
+						Token = response.Token,
+						FirstName = response.FirstName,
+						LastName = response.LastName
 					};
 
 					if (Preferences.ContainsKey(nameof(App.UserDetails)))
@@ -76,22 +79,13 @@ namespace AuthTemplate.ViewModels
             try
             {
                 WebAuthenticatorResult result = null;
-                if (DeviceInfo.Platform == DevicePlatform.iOS
-                    && DeviceInfo.Version.Major >= 13)
-                {
-                    // Use Native Apple Sign In API's
-                    result = await AppleSignInAuthenticator.AuthenticateAsync();
-                }
-				else
-				{
                     result = await WebAuthenticator.Default.AuthenticateAsync(
                         new Uri("https://localhost:7043/api/accounts/google-auth"),
-                        new Uri("myapp://"));
+                        new Uri("authtemplate://google-auth-success"));
 
                     string accessToken = result?.AccessToken;
 
                     // Do something with the token
-                }
                 var authToken = string.Empty;
 
                 if (result.Properties.TryGetValue("name", out string name) && !string.IsNullOrEmpty(name))

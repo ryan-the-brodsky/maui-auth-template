@@ -8,8 +8,7 @@ public partial class FlyoutHeaderControl : StackLayout
 
 		if(App.UserDetails != null)
 		{
-			lblUserName.Text = App.UserDetails.Email;
-			lblUserEmail.Text = App.UserDetails.Email;
+			lblUserName.Text = $"Hi, {App.UserDetails.FirstName}";
 		}
 	}
 }

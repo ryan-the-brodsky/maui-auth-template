@@ -33,6 +33,9 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -68,6 +71,8 @@
 	  <None Remove="ViewModels\Startup\" />
 	  <None Remove="Controls\" />
 	  <None Remove="Services\" />
+	  <None Remove="Views\AccountManagement\" />
+	  <None Remove="ViewModels\AccountManagement\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Handlers\" />
@@ -79,6 +84,8 @@
 	  <Folder Include="ViewModels\Startup\" />
 	  <Folder Include="Controls\" />
 	  <Folder Include="Services\" />
+	  <Folder Include="Views\AccountManagement\" />
+	  <Folder Include="ViewModels\AccountManagement\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="Views\Startup\LoginPage.xaml">
@@ -94,6 +101,9 @@
 	    <SubType></SubType>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Startup\RegistrationPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AccountManagement\ResetPasswordPage.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
 	</ItemGroup>

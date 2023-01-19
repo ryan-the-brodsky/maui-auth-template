@@ -22,7 +22,9 @@ namespace AuthTemplate.Services
 
             if (response.IsSuccessStatusCode)
 			{
-				return JsonConvert.DeserializeObject<AuthResponse>(json);
+				AuthResponse authResponse = JsonConvert.DeserializeObject<AuthResponse>(json);
+				authResponse.IsAuthSuccessful = true;
+				return authResponse;
 			}
 			else
 			{

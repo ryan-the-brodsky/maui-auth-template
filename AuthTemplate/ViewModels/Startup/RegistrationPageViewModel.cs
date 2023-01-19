@@ -55,7 +55,9 @@ namespace AuthTemplate.ViewModels.Startup
 				{
                     var userDetails = new UserInfo()
                     {
-                        Email = Email
+                        Email = Email,
+                        FirstName = FirstName,
+                        LastName = LastName
                     };
 
                     if (Preferences.ContainsKey(nameof(App.UserDetails)))
